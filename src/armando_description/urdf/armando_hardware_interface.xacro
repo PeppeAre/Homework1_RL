@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="armando_hardware_interface">
+    
+    <ros2_control name="GazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+        
+      <joint name="j0">
+        <command_interface name="position">
+          <param name="min">-2.57</param>
+          <param name="max">2.57</param>
+          <param name="p_gain">100</param> 
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="j1">
+        <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+          <param name="p_gain">100</param>
+        </command_interface>
+        <state_interface name="position">
+           <param name="initial_value">0.0</param>
+        </state_interface>
+         <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="j2">
+        <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+          <param name="p_gain">100</param>
+        </command_interface>
+        <state_interface name="position">
+           <param name="initial_value">0.0</param>
+        </state_interface>
+         <state_interface name="velocity"/>
+      </joint>
+
+      <joint name="j3">
+        <command_interface name="position">
+          <param name="min">-3.14</param>
+          <param name="max">3.14</param>
+          <param name="p_gain">100</param>
+        </command_interface>
+        <state_interface name="position">
+           <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+       </joint>
+
+    </ros2_control>
+    
+    <gazebo>
+      <plugin name="ignition::gazebo::systems::Sensors"
+              filename="libignition-gazebo-sensors-system.so">
+        <render_engine>ogre2</render_engine>
+      </plugin>
+    </gazebo>
+    
+  </xacro:macro>
+
+</robot>
